@@ -31,6 +31,16 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="partner_chinese_stats.list">
+      <field name = "name">partner_chinese_stats list</field>
+      <field name = "inherit_id" ref="base.view_partner_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//list/field[@name='complete_name']" position="after">
+          <field name="signo_chino" string="Signo del horóscopo chino"/>
+        </xpath>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
   <!--
     <record model="ir.actions.act_window" id="partner_chinese_stats.action_window">
