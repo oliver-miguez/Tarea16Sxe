@@ -19,7 +19,7 @@
       <field name="model">res.partner</field>
       <field name="inherit_id" ref="base.view_partner_form"/>
       <field name="arch" type="xml">
-        <xpath expr ="//notebook" position="inside">
+        <xpath expr="//notebook" position="inside">
           <page string="Signo Chino">
             <group>
               <field name="f_nac" string="Fecha de nacimiento"/>
@@ -32,11 +32,24 @@
     </record>
 
     <record model="ir.ui.view" id="partner_chinese_stats.list">
-      <field name = "name">partner_chinese_stats list</field>
-      <field name = "inherit_id" ref="base.view_partner_tree"/>
+      <field name="name">partner_chinese_stats list</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_tree"/>
       <field name="arch" type="xml">
         <xpath expr="//list/field[@name='complete_name']" position="after">
           <field name="signo_chino" string="Signo del horóscopo chino"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="partner_chinese_stats.kanban">
+      <field name="name">partner_chinese_stats kanban</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[@class='mb-1']/field[@name='display_name']" position="after">
+          <br/>
+          <field name="signo_chino"/>
         </xpath>
       </field>
     </record>
